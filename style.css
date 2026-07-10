@@ -1,0 +1,565 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url("green.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.topbar {
+    width: 100%;
+    height: 50px;
+
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding-right: 20px;
+
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.desktop {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+}
+
+
+.app-icon img {
+    width: 80px;
+    height: 80px;
+
+    border-radius: 18px;
+    cursor: pointer;
+
+    transition: transform 0.2s;
+}
+
+.app-icon img:hover {
+    transform: scale(1.1);
+}
+
+
+/* Calendar app window */
+
+.calendar-window {
+    display: none;
+
+    position: absolute;
+
+    top: 120px;
+    left: 150px;
+
+    width: 600px;
+    height: 450px;
+
+    background: rgba(255,255,255,0.9);
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+
+
+.calendar-header {
+    height: 45px;
+    background: rgba(0,0,0,.7);
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 15px;
+    font-size: 18px;
+
+    cursor: move;
+}
+
+
+.calendar-header button {
+    border:none;
+    background:none;
+    color:white;
+    cursor:pointer;
+}
+
+
+.calendar-window iframe {
+    width:100%;
+    height:calc(100% - 45px);
+}
+
+/* Notes Window */
+
+.notes-window {
+    display: none;
+
+    position: absolute;
+
+    top: 150px;
+    left: 250px;
+
+    width: 700px;
+    height: 500px;
+
+    background: rgba(255,255,255,0.95);
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+
+.notes-header {
+    height: 45px;
+
+    background: rgba(0,0,0,.7);
+
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 15px;
+
+    font-size: 18px;
+}
+
+.notes-header button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.notes-toolbar {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    background: #f4f4f4;
+}
+
+.notes-toolbar button {
+    padding: 8px 14px;
+    cursor: pointer;
+}
+
+.notes-container {
+    height: calc(100% - 95px);
+
+    overflow-y: auto;
+
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.note {
+    width: 100%;
+    min-height: 150px;
+
+    resize: vertical;
+
+    padding: 10px;
+
+    font-size: 16px;
+
+    border-radius: 8px;
+
+    border: 1px solid #bbb;
+
+    font-family: Arial, sans-serif;
+}
+
+.app-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-bottom: 25px;
+
+    cursor: pointer;
+}
+
+.app-icon span {
+    margin-top: 8px;
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+
+    text-shadow: 1px 1px 4px rgba(0,0,0,.8);
+
+    user-select: none;
+}
+
+.notes-header {
+    height: 45px;
+
+    background: rgba(0,0,0,.7);
+
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 15px;
+
+    font-size: 18px;
+
+    cursor: move;
+}
+
+/* Timer Window */
+
+.timer-window {
+
+    display: none;
+
+    position: absolute;
+
+    top: 200px;
+    left: 350px;
+
+    width: 350px;
+    height: 250px;
+
+    background: rgba(255,255,255,0.95);
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+
+
+.timer-header {
+
+    height: 45px;
+
+    background: rgba(0,0,0,.7);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 15px;
+
+    font-size:18px;
+
+    cursor: move;
+
+}
+
+
+.timer-header button {
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+
+.timer-content {
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:calc(100% - 45px);
+
+}
+
+
+#timerDisplay {
+
+    font-size:50px;
+
+    font-family:Arial;
+
+    margin-bottom:20px;
+
+}
+
+
+.timer-buttons button {
+
+    padding:10px 15px;
+
+    margin:5px;
+
+    cursor:pointer;
+
+}
+
+.tree-container {
+
+    position: absolute;
+
+    top: 120px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#tree {
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+
+    user-select: none;
+}
+
+#taskCount {
+
+    margin-top: 10px;
+
+    color: white;
+
+    font-size: 22px;
+
+    text-shadow: 2px 2px 6px black;
+
+}
+
+#growButton {
+
+    margin-top: 15px;
+
+    padding: 12px 20px;
+
+    font-size: 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+}
+
+#resetButton {
+    margin-top: 10px;
+
+    padding: 10px 18px;
+
+    background: #e74c3c;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#resetButton:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+.topbar {
+    width: 100%;
+    height: 50px;
+
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    position: relative;
+}
+
+#clock {
+    position: absolute;
+    right: 20px;
+}
+
+#date {
+    font-size: 18px;
+}
+/* Tasks Window */
+
+.tasks-window {
+
+    display: none;
+
+    position: absolute;
+
+    top: 180px;
+    left: 300px;
+
+    width: 400px;
+    height: 450px;
+
+    background: rgba(255,255,255,0.95);
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+
+
+.tasks-header {
+
+    height: 45px;
+
+    background: rgba(0,0,0,.7);
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 15px;
+
+    font-size:18px;
+
+}
+
+
+.tasks-header button {
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+
+.tasks-toolbar {
+
+    padding:10px;
+
+    background:#f4f4f4;
+
+}
+
+
+.tasks-toolbar button {
+
+    padding:8px 14px;
+
+    cursor:pointer;
+
+}
+
+
+.tasks-container {
+
+    padding:15px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+
+.task {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px;
+
+    background:white;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+}
+
+
+.task input {
+
+    width:18px;
+
+    height:18px;
+
+}
+
+
+.task span {
+
+    font-size:16px;
+
+}
+
+.task-text {
+    flex: 1;
+
+    outline: none;
+
+    min-height: 25px;
+
+    font-size: 16px;
+
+    cursor: text;
+}

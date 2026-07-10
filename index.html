@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desk App</title> 
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="topbar">
+    <div id="date"></div>
+    <div id="clock">Loading...</div>
+</div>
+
+<div class="desktop">
+
+  <div class="app-icon" onclick="openCalendar()">
+    <img src="Calendar.png" alt="Calendar">
+    <span>Calendar</span>
+  </div>
+
+   <div class="app-icon" onclick="openNotes()">
+        <img src="note.svg" alt="Notes">
+        <span>Notes</span>
+    </div>
+
+    <div class="app-icon" onclick="openTimer()">
+        <img src="timer.png" alt="Timer">
+        <span>Timer</span>
+    </div>  
+    
+    <div class="app-icon" onclick="openTasks()">
+        <img src="tasks.jpg" alt="Tasks">
+        <span>Tasks</span>
+    </div>
+
+</div>
+
+<div class="calendar-window" id="calendar">
+    <div class="calendar-header" id="calendarHeader">
+        Calendar
+        <button onclick="closeCalendar()">X</button>
+    </div>
+
+    <iframe
+        src="https://calendar.google.com/calendar/embed"
+        frameborder="0">
+    </iframe>
+</div>
+
+<div class="notes-window" id="notes">
+
+    <div class="notes-header" id="notesHeader">
+        Notes
+        <button onclick="closeNotes()">X</button>
+    </div>
+
+    <div class="notes-toolbar">
+        <button onclick="createNote()">+ New Note</button>
+    </div>
+
+    <div class="notes-container" id="notesContainer">
+    </div>
+
+</div>
+
+<div class="timer-window" id="timer">
+
+    <div class="timer-header" id="timerHeader">
+        Timer
+        <button onclick="closeTimer()">X</button>
+    </div>
+
+    <div class="timer-content">
+
+        <div id="timerDisplay">
+            25:00
+        </div>
+
+        <div class="timer-buttons">
+            <button onclick="startTimer()">Start</button>
+            <button onclick="pauseTimer()">Pause</button>
+            <button onclick="resetTimer()">Reset</button>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="tree-container">
+
+    <img id="tree" src="tree1.png" alt="Tree">
+
+    <div id="taskCount">
+        Tasks Completed: 0
+    </div>
+
+    <button id="growButton" onclick="completeTask()">
+        Complete Task
+    </button>
+
+    <button id="resetButton" onclick="resetTree()">
+        Reset Tree
+    </button>
+
+</div>
+
+<div class="tasks-window" id="tasks">
+
+    <div class="tasks-header" id="tasksHeader">
+        Tasks
+        <button onclick="closeTasks()">X</button>
+    </div>
+
+
+    <div class="tasks-toolbar">
+        <button onclick="createTask()">+ New Task</button>
+    </div>
+
+
+    <div class="tasks-container" id="tasksContainer">
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
