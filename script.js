@@ -176,22 +176,27 @@ function completeTask() {
     tasksCompleted++;
     localStorage.setItem("tasksCompleted", tasksCompleted);
     updateTree();
+    checkTreeGrowth();
 }
 
 function updateTree() {
     taskCount.textContent = "Tasks Completed: " + tasksCompleted;
-        if (tasksCompleted >= 15) {
-            tree.src = "tree4.png";
-        }
-        else if (tasksCompleted >= 10) {
-            tree.src = "tree3.png";
-        }
-        else if (tasksCompleted >= 5) {
-            tree.src = "tree2.png";
-        }
-        else {
-            tree.src = "tree1.png";
+    if (tasksCompleted >= 20) {
+        tree.src = "tree5.png";
     }
+    else if (tasksCompleted >= 15) {
+        tree.src = "tree4.png";
+    }
+    else if (tasksCompleted >= 10) {
+        tree.src = "tree3.png";
+    }
+    else if (tasksCompleted >= 5) {
+        tree.src = "tree2.png";
+    }
+    else {
+        tree.src = "tree1.png";
+    }
+
 }
 
 function resetTree() {
@@ -275,4 +280,39 @@ function toggleBackground() {
         document.body.style.backgroundImage = 'url("green.jpg")';
     }
     usingFirstBackground = !usingFirstBackground;
+}
+
+let lastTreeStage = 1;
+
+function showTreePopup(stage) {
+    const popup = document.getElementById("treePopup");
+    document.getElementById("popupText").textContent =
+        "Your tree grew to Stage " + stage + "!";
+    popup.style.display = "flex";
+
+}
+
+function closeTreePopup(){
+    document.getElementById("treePopup").style.display = "none";
+
+}
+
+function checkTreeGrowth(){
+    let newStage = 1;
+    if(tasksCompleted >= 20){
+        newStage = 5;
+    }
+    else if(tasksCompleted >= 15){
+        newStage = 4;
+    }
+    else if(tasksCompleted >= 10){
+        newStage = 3;
+    }
+    else if(tasksCompleted >= 5){
+        newStage = 2;
+    }
+    if(newStage > lastTreeStage){
+        showTreePopup(newStage);
+        lastTreeStage = newStage;
+    }
 }
